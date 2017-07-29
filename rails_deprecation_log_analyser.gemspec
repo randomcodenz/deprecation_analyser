@@ -1,18 +1,19 @@
 # coding: utf-8
+# frozen_string_literal: true
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "deprecation_analyser/version"
+require "rails_deprecation_log_analyser/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "deprecation_analyser"
-  spec.version       = DeprecationAnalyser::VERSION
+  spec.name          = "rails_deprecation_log_analyser"
+  spec.version       = RailsDeprecationLogAnalyser::VERSION
   spec.authors       = ["neal.blomfield"]
   spec.email         = ["randomcodenz@users.noreply.github.com"]
 
-  spec.summary       = "Analyse rails deprecation warnings contained in a file."
-  spec.description   = "Analyse rails deprecation warnings contained in a file and output them in various formats to enable reporting in CI environments."
-  spec.homepage      = "https://github.com/randomcodenz/deprecation_analyser"
+  spec.summary       = "Analyse rails deprecation warnings contained in a log."
+  spec.description   = "Analyse rails deprecation warnings contained in a log and output them in various formats to enable reporting in CI environments."
+  spec.homepage      = "https://github.com/randomcodenz/rails_deprecation_log_analyser"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

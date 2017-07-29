@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 require "bundler/setup"
-require "deprecation_analyser"
+require "rails_deprecation_log_analyser"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

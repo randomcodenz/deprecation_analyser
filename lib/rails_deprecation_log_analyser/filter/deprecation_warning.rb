@@ -5,12 +5,12 @@ module RailsDeprecationLogAnalyser
     class DeprecationWarning
       DEPRECATION_WARNING_LEADER = 'DEPRECATION WARNING: '
 
-      def match?(line:)
+      def match?(line)
         line.start_with?(DEPRECATION_WARNING_LEADER)
       end
 
-      def clean(line:)
-        if match?(line: line)
+      def clean(line)
+        if match?(line)
           line.slice(DEPRECATION_WARNING_LEADER.length..-1)
         else
           line

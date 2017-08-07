@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift("#{__dir__}/../lib")
+
+require 'rails_deprecation_log_analyser'
+
+cli = RailsDeprecationLogAnalyser::CLI.new
+result = cli.run
+
+exit result

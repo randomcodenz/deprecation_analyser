@@ -8,7 +8,7 @@ module RailsDeprecationLogAnalyser
       subject(:filter) { DeprecationWarningWithTimestamp.new }
 
       describe '#match?' do
-        let(:match_result) { filter.match?(line: line) }
+        let(:match_result) { filter.match?(line) }
 
         context 'when the line starts with `DEPRECATION WARNING: `' do
           let(:line) { 'DEPRECATION WARNING: Passing a class as a value in an Active Record query' }
@@ -36,7 +36,7 @@ module RailsDeprecationLogAnalyser
       end
 
       describe '#clean' do
-        let(:clean_result) { filter.clean(line: line) }
+        let(:clean_result) { filter.clean(line) }
 
         context 'when the line starts with `DEPRECATION WARNING: `' do
           let(:line) { 'DEPRECATION WARNING: Passing a class as a value in an Active Record query' }

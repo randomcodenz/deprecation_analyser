@@ -5,11 +5,11 @@ module RailsDeprecationLogAnalyser
     class DeprecationWarningWithTimestamp
       DEPRECATION_WARNING_REGEX = /^[ 0-9:\-]{20}DEPRECATION WARNING: /
 
-      def match?(line:)
+      def match?(line)
         match(line) != nil
       end
 
-      def clean(line:)
+      def clean(line)
         match = match(line)
         if(match)
           line.slice(match.end(0)..-1)

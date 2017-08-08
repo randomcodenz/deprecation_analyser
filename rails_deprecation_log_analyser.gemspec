@@ -8,7 +8,8 @@ require "rails_deprecation_log_analyser/version"
 Gem::Specification.new do |spec|
   spec.name          = "rails_deprecation_log_analyser"
   spec.version       = RailsDeprecationLogAnalyser::VERSION
-  spec.authors       = ["neal.blomfield"]
+  spec.platform      = Gem::Platform::RUBY
+  spec.authors       = ["Neal Blomfield"]
   spec.email         = ["randomcodenz@users.noreply.github.com"]
 
   spec.summary       = "Analyse rails deprecation warnings contained in a log."
@@ -31,6 +32,7 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+  spec.required_ruby_version = '>= 2.3.4'
 
   spec.add_development_dependency "bundler", "~> 1.15"
   spec.add_development_dependency "rake", "~> 10.0"

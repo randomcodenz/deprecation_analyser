@@ -43,7 +43,7 @@ module RailsDeprecationLogAnalyser
       return if filter.nil?
 
       classifier = configuration.find_classifier(lines.peek)
-      classifier_result = classifier.process(lines, filter)
+      classifier_result = classifier.process(lines, filter, configuration.source_directory)
       configuration.log_analysis.deprecation_warning(classifier_result)
     end
   end

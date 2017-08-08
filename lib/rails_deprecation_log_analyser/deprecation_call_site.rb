@@ -1,22 +1,24 @@
 # frozen_string_literal: true
 
+require 'pathname'
+
 module RailsDeprecationLogAnalyser
   class DeprecationCallSite
     CALL_SITE_REGEX = /\(called from (.*) at (.*):(\d*)\)/
 
     attr_reader :found, :method, :file, :line_number
 
-    def initialize(line)
+    def initialize(line, source_directory)
       matches = line.match(CALL_SITE_REGEX)
       if matches
         @found = true
         @method = matches[1]
-        @file = matches[2]
+        @file = make_relative(matches[2], source_directory)
         @line_number = matches[3]
       else
         @found = false
         @method = 'unknown_method'
-        @file = 'unknown_file'
+        @file = ''
         @line_number = ''
       end
     end
@@ -27,6 +29,15 @@ module RailsDeprecationLogAnalyser
 
     def self.null
       new('')
+    end
+
+    private
+
+    def make_relative(file, source_directory)
+      return file if source_directory.empty?
+      file_path = Pathname.new(file)
+      source_directory_path = Pathname.new(source_directory)
+      file_path.relative_path_from(source_directory_path)
     end
   end
 end

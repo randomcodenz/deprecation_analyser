@@ -24,8 +24,8 @@ module RailsDeprecationLogAnalyser
         let(:call_site_message_2) { "(called from #{method_name} at #{file_name_2}:#{line_number})" }
         let(:message_1) { "A thing was deprecated #{call_site_message_1}" }
         let(:message_2) { "A thing was deprecated #{call_site_message_2}" }
-        let(:call_site_1) { DeprecationCallSite.new(call_site_message_1) }
-        let(:call_site_2) { DeprecationCallSite.new(call_site_message_2) }
+        let(:call_site_1) { DeprecationCallSite.new(call_site_message_1, '') }
+        let(:call_site_2) { DeprecationCallSite.new(call_site_message_2, '') }
         let(:warning_1) do
           DeprecationWarning.new(
             deprecated: deprecated,

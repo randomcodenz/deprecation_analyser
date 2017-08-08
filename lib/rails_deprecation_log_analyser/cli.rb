@@ -5,11 +5,12 @@ module RailsDeprecationLogAnalyser
     def run(args = ARGV)
       log_file_path = args[0]
       checkstyle_path = args[1]
+      source_directory = args[2]
 
       nitra_build_log = LogSource::Nitra.new(log_file_path)
       checkstyle = Formatter::CheckstyleFormatter.new
 
-      configuration = Configuration.new(nitra_build_log, [checkstyle])
+      configuration = Configuration.new(nitra_build_log, [checkstyle], source_directory)
       parser = LogParser.new(configuration)
 
       parser.parse

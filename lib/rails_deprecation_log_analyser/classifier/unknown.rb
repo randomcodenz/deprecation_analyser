@@ -7,10 +7,10 @@ module RailsDeprecationLogAnalyser
         true
       end
 
-      def process(lines, filter)
+      def process(lines, filter, source_directory)
         log_line = lines.take(1).first
 
-        call_site = DeprecationCallSite.new(log_line)
+        call_site = DeprecationCallSite.new(log_line, source_directory)
 
         warning = DeprecationWarning.new(
           deprecated: 'Unknown',

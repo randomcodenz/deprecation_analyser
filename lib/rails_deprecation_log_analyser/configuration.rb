@@ -3,10 +3,13 @@
 module RailsDeprecationLogAnalyser
   class Configuration
 
-    def initialize(parser_config, formatters)
+    attr_reader :source_directory
+
+    def initialize(parser_config, formatters, source_directory)
       @parser_config = parser_config
       @classifiers = []
       @formatters = formatters
+      @source_directory = source_directory
     end
 
     def log_lines

@@ -9,7 +9,7 @@ module RailsDeprecationLogAnalyser
       let(:filter) { double('filter') }
       let(:classifier_result) { unknown_classifier.process(lines, filter) }
 
-      subject(:unknown_classifier) { described_class.new }
+      subject(:unknown_classifier) { described_class.new('') }
 
       describe '#process' do
         before { allow(filter).to receive(:clean) { |line| line } }

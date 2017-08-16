@@ -7,7 +7,9 @@ module RailsDeprecationLogAnalyser
     class CheckstyleFormatter
       OUTPUT_INDENT = 2
 
-      def deprecation_warning(warning, log_lines)
+      def deprecation_warning(warning)
+        return if warning.nil?
+
         file = files[warning.file]
         error(file).add_attributes(error_attributes(warning))
       end

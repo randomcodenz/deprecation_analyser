@@ -56,7 +56,7 @@ module RailsDeprecationLogAnalyser
           end
 
           it 'creates the expected xml document' do
-            formatter.deprecation_warning(warning_1, [message_1])
+            formatter.deprecation_warning(warning_1)
             expect(xml).to eq checkstyle_xml.chomp
           end
         end
@@ -77,8 +77,8 @@ module RailsDeprecationLogAnalyser
           end
 
           it 'creates the expected xml document' do
-            formatter.deprecation_warning(warning_1, [message_1])
-            formatter.deprecation_warning(warning_2, [message_2])
+            formatter.deprecation_warning(warning_1)
+            formatter.deprecation_warning(warning_2)
             expect(xml).to eq checkstyle_xml.chomp
           end
         end
@@ -98,8 +98,8 @@ module RailsDeprecationLogAnalyser
           end
 
           it 'creates the expected xml document' do
-            formatter.deprecation_warning(warning_1, [message_1])
-            formatter.deprecation_warning(warning_2, [message_2])
+            formatter.deprecation_warning(warning_1)
+            formatter.deprecation_warning(warning_2)
             expect(xml).to eq checkstyle_xml.chomp
           end
         end

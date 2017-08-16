@@ -18,5 +18,23 @@ module RailsDeprecationLogAnalyser
       @message = message
       @call_site = call_site || DeprecationCallSite.null
     end
+
+    def digest
+      Digest::SHA1.hexdigest(digest_content)
+    end
+
+    private
+
+    def digest_content
+      [
+        deprecated,
+        summary,
+        message,
+        method,
+        file,
+        line_number
+      ]
+    end
+
   end
 end

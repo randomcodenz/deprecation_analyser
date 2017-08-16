@@ -33,7 +33,7 @@ module RailsDeprecationLogAnalyser
     attr_reader :parser_config, :classifiers, :formatters
 
     def unknown
-      Classifier::Unknown.new
+      Classifier::Unknown.new(source_directory)
     end
   end
 end

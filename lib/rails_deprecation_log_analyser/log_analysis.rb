@@ -11,6 +11,7 @@ module RailsDeprecationLogAnalyser
       @deprecation_warning_formatters = formatters.select { |f| f.respond_to?(:deprecation_warning) }
       @deprecation_log_formatters = formatters.select { |f| f.respond_to?(:deprecation_log) }
       @other_formatters = formatters.select { |f| f.respond_to?(:other) }
+
       @deprecation_warning_tracker = Set.new if deprecation_warning_formatters.any?
       @deprecation_log_tracker = Set.new if deprecation_log_formatters.any?
       @other_tracker = Set.new if other_formatters.any?
@@ -44,7 +45,7 @@ module RailsDeprecationLogAnalyser
     end
 
     def deprecation_log(log_lines)
-      return if log_lines&.empty? || deprecation_log_trackers.empty?
+      return if log_lines&.empty? || deprecation_log_formatters.empty?
       return unless deprecation_log_tracker.add?(digest(log_lines))
 
       deprecation_log_formatters.each do |f|

@@ -7,6 +7,9 @@ module RailsDeprecationLogAnalyser
       checkstyle_path = args[1]
       source_directory = args[2]
 
+      help_text = 'bundle exec rails_derecation_log_analyser log_file_path, checkstyle_output_path, source_directory_path'
+      raise ArgumentError, 'Missing log file path. ' + help_text if log_file_path.nil?
+
       nitra_build_log = LogSource::Nitra.new(log_file_path)
       checkstyle = Formatter::CheckstyleFormatter.new
 
@@ -17,7 +20,7 @@ module RailsDeprecationLogAnalyser
 
       File.open(checkstyle_path, 'w') do |io|
         checkstyle.write(io)
-      end
+      end unless checkstyle_path.nil?
 
       return 0
     rescue StandardError, SyntaxError => e

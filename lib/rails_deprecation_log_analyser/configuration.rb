@@ -9,7 +9,7 @@ module RailsDeprecationLogAnalyser
       @parser_config = parser_config
       @classifiers = []
       @formatters = formatters
-      @source_directory = source_directory
+      @source_directory = source_directory || ''
     end
 
     def log_lines

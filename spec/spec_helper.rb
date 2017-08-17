@@ -2,6 +2,7 @@
 
 require 'bundler/setup'
 require 'rails_deprecation_log_analyser'
+require 'byebug'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

@@ -5,7 +5,7 @@ require 'rails_deprecation_log_analyser/configuration'
 require 'rails_deprecation_log_analyser/deprecation_call_site'
 require 'rails_deprecation_log_analyser/deprecation_warning'
 require 'rails_deprecation_log_analyser/log_analysis'
-require 'rails_deprecation_log_analyser/log_line_enumerator'
+require 'rails_deprecation_log_analyser/log_cursor'
 require 'rails_deprecation_log_analyser/log_parser'
 require 'rails_deprecation_log_analyser/version'
 

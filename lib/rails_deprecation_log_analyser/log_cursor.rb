@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module RailsDeprecationLogAnalyser
-  class LogLineEnumerator
+  class LogCursor
     attr_reader :index
 
     def initialize(log_lines)
@@ -10,14 +10,14 @@ module RailsDeprecationLogAnalyser
     end
 
     def peek
-      next_line ||= log_lines.next
+      next_line = log_lines.next if next_line.nil?
     end
 
     def take(n = 1)
       lines = [next_line].compact
       next_line = nil
 
-      while lines.count < n do
+      while lines.count <= n do
         lines << log_lines.next
       end
 

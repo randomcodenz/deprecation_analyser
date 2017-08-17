@@ -3,13 +3,13 @@
 module RailsDeprecationLogAnalyser
   class Configuration
 
-    attr_reader :source_directory
-
     def initialize(parser_config, formatters, source_directory)
       @parser_config = parser_config
-      @classifiers = []
       @formatters = formatters
-      @source_directory = source_directory || ''
+
+      source_directory = source_directory || ''
+      @classifiers = build_classifiers(source_directory)
+      @unknown = build_unknown(source_directory)
     end
 
     def log_lines
@@ -30,9 +30,16 @@ module RailsDeprecationLogAnalyser
 
     private
 
-    attr_reader :parser_config, :classifiers, :formatters
+    attr_reader :parser_config, :classifiers, :formatters, :unknown
 
-    def unknown
+    def build_classifiers(source_directory)
+      [
+        Classifier::ConnectionTables.new(source_directory),
+        Classifier::MimeTypeConstants.new(source_directory)
+      ]
+    end
+
+    def build_unknown(source_directory)
       Classifier::Unknown.new(source_directory)
     end
   end

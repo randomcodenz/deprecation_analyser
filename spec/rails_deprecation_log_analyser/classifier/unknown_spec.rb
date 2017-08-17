@@ -7,9 +7,9 @@ module RailsDeprecationLogAnalyser
     RSpec.describe Unknown do
       let(:lines) { ['Line 1', 'Line 2', 'Line 3'] }
       let(:filter) { double('filter') }
-      let(:classifier_result) { unknown_classifier.process(lines, filter) }
+      let(:classifier_result) { classifier.process(lines, filter) }
 
-      subject(:unknown_classifier) { described_class.new('') }
+      subject(:classifier) { described_class.new('') }
 
       describe '#process' do
         before { allow(filter).to receive(:clean) { |line| line } }

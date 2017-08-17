@@ -9,7 +9,9 @@ require 'rails_deprecation_log_analyser/log_line_enumerator'
 require 'rails_deprecation_log_analyser/log_parser'
 require 'rails_deprecation_log_analyser/version'
 
+require 'rails_deprecation_log_analyser/classifier/base'
 require 'rails_deprecation_log_analyser/classifier/classifier_result'
+require 'rails_deprecation_log_analyser/classifier/connection_tables'
 require 'rails_deprecation_log_analyser/classifier/unknown'
 
 require 'rails_deprecation_log_analyser/filter/deprecation_warning'

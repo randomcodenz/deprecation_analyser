@@ -9,6 +9,17 @@ module RailsDeprecationLogAnalyser
         @source_directory = source_directory
       end
 
+      def process(cursor, filter)
+        lines = cursor.take(lines_to_consume)
+
+        clean_lines = [filter.clean(lines[0])]
+        clean_lines.concat(lines[1..-1])
+
+        warning = build_deprecation_warning(clean_lines)
+
+        ClassifierResult.new(lines, warning)
+      end
+
       protected
 
       def build_call_site(log_line)

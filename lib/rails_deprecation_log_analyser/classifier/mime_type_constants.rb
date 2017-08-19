@@ -7,17 +7,19 @@ module RailsDeprecationLogAnalyser
         log_line.include?('Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`.')
       end
 
-      def process(lines, filter)
-        log_line = lines.take(1).first
+      protected
 
+      def lines_to_consume
+        1
+      end
+
+      def build_deprecation_warning(lines)
         warning = DeprecationWarning.new(
-          :deprecated => 'Mime types via constants',
-          :summary => 'Accessing mime types via constants is deprecated',
-          :message => 'Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`.',
-          call_site: build_call_site(log_line)
+          deprecated: 'Mime types via constants',
+          summary: 'Accessing mime types via constants is deprecated',
+          message: 'Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`.',
+          call_site: build_call_site(lines.first)
         )
-
-        ClassifierResult.new([log_line], warning)
       end
     end
   end

@@ -7,17 +7,19 @@ module RailsDeprecationLogAnalyser
         true
       end
 
-      def process(lines, filter)
-        log_line = lines.take(1).first
+      protected
 
+      def lines_to_consume
+        1
+      end
+
+      def build_deprecation_warning(lines)
         warning = DeprecationWarning.new(
           deprecated: 'Unknown',
           summary: 'Unknown deprecation warning',
-          message: filter.clean(log_line),
-          call_site: build_call_site(log_line)
+          message: lines.first,
+          call_site: build_call_site(lines.first)
         )
-
-        ClassifierResult.new([log_line], warning)
       end
     end
   end

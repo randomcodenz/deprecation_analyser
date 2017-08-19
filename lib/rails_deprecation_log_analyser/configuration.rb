@@ -12,11 +12,12 @@ module RailsDeprecationLogAnalyser
       @unknown = build_unknown(source_directory)
     end
 
-    def log_lines
-      @log_lines = LogLineEnumerator.new(parser_config.log_lines)
+    def log_cursor
+      @log_lines = LogCursor.new(parser_config.log_lines)
     end
 
     def find_filter(line)
+      return nil if line.nil?
       parser_config.filters.detect { |f| f.match?(line) }
     end
 

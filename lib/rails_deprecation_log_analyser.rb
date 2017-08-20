@@ -15,6 +15,7 @@ require 'rails_deprecation_log_analyser/classifier/connection_tables'
 require 'rails_deprecation_log_analyser/classifier/mime_type_constants'
 require 'rails_deprecation_log_analyser/classifier/redirect_to_back'
 require 'rails_deprecation_log_analyser/classifier/unknown'
+require 'rails_deprecation_log_analyser/classifier/with_indifferent_access'
 
 require 'rails_deprecation_log_analyser/filter/deprecation_warning'
 require 'rails_deprecation_log_analyser/filter/deprecation_warning_with_timestamp'

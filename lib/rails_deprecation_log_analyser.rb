@@ -13,6 +13,7 @@ require 'rails_deprecation_log_analyser/classifier/base'
 require 'rails_deprecation_log_analyser/classifier/classifier_result'
 require 'rails_deprecation_log_analyser/classifier/connection_tables'
 require 'rails_deprecation_log_analyser/classifier/mime_type_constants'
+require 'rails_deprecation_log_analyser/classifier/equality_comparison_between_parameters_and_hash'
 require 'rails_deprecation_log_analyser/classifier/unknown'
 
 require 'rails_deprecation_log_analyser/filter/deprecation_warning'

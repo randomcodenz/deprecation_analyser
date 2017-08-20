@@ -4,7 +4,7 @@ require 'spec_helper'
 
 module RailsDeprecationLogAnalyser
   module Classifier
-    RSpec.describe RestrictDependentDestoryClassifier do
+    RSpec.describe RestrictDependentDestory do
       let(:deprecation_leader) { 'DEPRECATION WARNING:' }
       let(:method) { 'random_method' }
       let(:file) { '/var/lib/jenkins/random_file.rb' }

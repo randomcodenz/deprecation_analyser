@@ -4,7 +4,7 @@ require 'spec_helper'
 
 module RailsDeprecationLogAnalyser
   module Classifier
-    RSpec.describe ClassArguementInActiveRecordQuery do
+    RSpec.describe ClassArgumentInActiveRecordQuery do
       let(:deprecation_leader) { 'DEPRECATION WARNING:' }
       let(:method) { 'random_menthod' }
       let(:file) { '/var/lib/jenkins/random_file.rb' }

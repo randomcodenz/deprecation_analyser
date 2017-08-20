@@ -2,7 +2,7 @@
 
 module RailsDeprecationLogAnalyser
   module Classifier
-    class ClassArguementInActiveRecordQuery < Base
+    class ClassArgumentInActiveRecordQuery < Base
       def match?(log_line)
         log_line.include?('Passing a class as a value in an Active Record query is deprecated and will be removed. Pass a string instead.')
       end

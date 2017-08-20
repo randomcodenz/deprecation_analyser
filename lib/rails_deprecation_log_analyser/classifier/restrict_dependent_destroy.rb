@@ -2,7 +2,7 @@
 
 module RailsDeprecationLogAnalyser
   module Classifier
-    class RestrictDependentDestoryClassifier < Base
+    class RestrictDependentDestory < Base
       def match?(log_line)
         log_line.include?('The error key `:\'restrict_dependent_destroy.many\'` has been deprecated and will be removed in Rails 5.1. Please use `:\'restrict_dependent_destroy.has_many\'` instead.')
       end

@@ -35,8 +35,13 @@ module RailsDeprecationLogAnalyser
 
     def build_classifiers(source_directory)
       [
+        Classifier::ClassArgumentInActiveRecordQuery.new(source_directory),
         Classifier::ConnectionTables.new(source_directory),
-        Classifier::MimeTypeConstants.new(source_directory)
+        Classifier::ImplicitCallbackChainEscape.new(source_directory),
+        Classifier::MimeTypeConstants.new(source_directory),
+        Classifier::RedirectToBack.new(source_directory),
+        Classifier::RestrictDependentDestory.new(source_directory),
+        Classifier::WithIndifferentAccess.new(source_directory)
       ]
     end
 

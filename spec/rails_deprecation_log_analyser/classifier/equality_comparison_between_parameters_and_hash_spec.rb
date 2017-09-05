@@ -38,7 +38,7 @@ module RailsDeprecationLogAnalyser
 
         it 'returns an equality comparison between parameters and hash deprecation warning' do
           expect(classifier_result.deprecation_warning).to have_attributes(
-            :deprecated => 'Equality comparison between `ActionController::Parameters` and `Hash`',
+            :deprecated => 'Parameters and Hash comparison',
             :summary => 'Comparing equality between `ActionController::Parameters` and a `Hash` is deprecated and will be removed in Rails 5.1.',
             :message => 'Comparing equality between `ActionController::Parameters` and a `Hash` is deprecated and will be removed in Rails 5.1. Please only do comparisons between instances of `ActionController::Parameters`. If you need to compare to a hash, first convert it using `ActionController::Parameters#new`.',
             :method => method,

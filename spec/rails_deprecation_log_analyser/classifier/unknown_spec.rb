@@ -15,7 +15,10 @@ module RailsDeprecationLogAnalyser
         before { allow(filter).to receive(:clean) { |line| line } }
 
         it 'creates an unknown deprecation warning' do
-          expect(classifier_result.deprecation_warning).to have_attributes(:deprecated => 'Unknown', :message => lines[0])
+          expect(classifier_result.deprecation_warning).to have_attributes(
+            :deprecated => 'Unknown',
+            :message => lines[0]
+          )
         end
 
         it 'returns the first lines from the lines processed' do

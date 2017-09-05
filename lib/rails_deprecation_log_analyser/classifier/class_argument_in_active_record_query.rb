@@ -15,7 +15,7 @@ module RailsDeprecationLogAnalyser
 
       def build_deprecation_warning(lines)
         warning = DeprecationWarning.new(
-          deprecated: 'Class arguement in ActiveRecord query',
+          deprecated: 'Class argument in ActiveRecord query',
           summary: 'Passing a class as a value in an Active Record query is deprecated and will be removed',
           message: 'Passing a class as a value in an Active Record query is deprecated and will be removed. Pass a string instead.',
           call_site: build_call_site(lines.first)

@@ -27,6 +27,7 @@ require 'rails_deprecation_log_analyser/classifier/render_text'
 require 'rails_deprecation_log_analyser/classifier/each_with_object_parameters'
 require 'rails_deprecation_log_analyser/classifier/to_hash_parameters'
 require 'rails_deprecation_log_analyser/classifier/deep_symbolize_keys_parameters'
+require 'rails_deprecation_log_analyser/classifier/map_parameters'
 
 require 'rails_deprecation_log_analyser/filter/deprecation_warning'
 require 'rails_deprecation_log_analyser/filter/deprecation_warning_with_timestamp'

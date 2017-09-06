@@ -43,7 +43,14 @@ module RailsDeprecationLogAnalyser
         Classifier::PositionalArgumentsFunctionalTests.new(source_directory),
         Classifier::RedirectToBack.new(source_directory),
         Classifier::RestrictDependentDestory.new(source_directory),
-        Classifier::WithIndifferentAccess.new(source_directory)
+        Classifier::WithIndifferentAccess.new(source_directory),
+        Classifier::ExceptParameters.new(source_directory),
+        Classifier::MemberParameters.new(source_directory),
+        Classifier::RenderText.new(source_directory),
+        Classifier::EachWithObjectParameters.new(source_directory),
+        Classifier::ToHashParameters.new(source_directory),
+        Classifier::DeepSymbolizeKeysParameters.new(source_directory),
+        Classifier::MapParameters.new(source_directory)
       ]
     end
 

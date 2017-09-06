@@ -23,6 +23,7 @@ require 'rails_deprecation_log_analyser/classifier/unknown'
 require 'rails_deprecation_log_analyser/classifier/with_indifferent_access'
 require 'rails_deprecation_log_analyser/classifier/except_parameters'
 require 'rails_deprecation_log_analyser/classifier/member_parameters'
+require 'rails_deprecation_log_analyser/classifier/render_text'
 
 require 'rails_deprecation_log_analyser/filter/deprecation_warning'
 require 'rails_deprecation_log_analyser/filter/deprecation_warning_with_timestamp'

@@ -37,20 +37,21 @@ module RailsDeprecationLogAnalyser
       [
         Classifier::ClassArgumentInActiveRecordQuery.new(source_directory),
         Classifier::ConnectionTables.new(source_directory),
+        Classifier::DeepSymbolizeKeysParameters.new(source_directory),
+        Classifier::EachWithObjectParameters.new(source_directory),
         Classifier::EqualityComparisonBeweenParametersAndHash.new(source_directory),
+        Classifier::ExceptParameters.new(source_directory),
         Classifier::ImplicitCallbackChainEscape.new(source_directory),
+        Classifier::MapParameters.new(source_directory)
+        Classifier::MemberParameters.new(source_directory),
         Classifier::MimeTypeConstants.new(source_directory),
         Classifier::PositionalArgumentsFunctionalTests.new(source_directory),
         Classifier::RedirectToBack.new(source_directory),
-        Classifier::RestrictDependentDestory.new(source_directory),
-        Classifier::WithIndifferentAccess.new(source_directory),
-        Classifier::ExceptParameters.new(source_directory),
-        Classifier::MemberParameters.new(source_directory),
         Classifier::RenderText.new(source_directory),
-        Classifier::EachWithObjectParameters.new(source_directory),
+        Classifier::RestrictDependentDestory.new(source_directory),
         Classifier::ToHashParameters.new(source_directory),
-        Classifier::DeepSymbolizeKeysParameters.new(source_directory),
-        Classifier::MapParameters.new(source_directory)
+        Classifier::WithIndifferentAccess.new(source_directory),
+        Classifier::XhrXmlHttpRequest.new(source_directory)
       ]
     end
 

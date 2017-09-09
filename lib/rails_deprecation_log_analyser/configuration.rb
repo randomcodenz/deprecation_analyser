@@ -36,6 +36,7 @@ module RailsDeprecationLogAnalyser
     def build_classifiers(source_directory)
       [
         Classifier::ClassArgumentInActiveRecordQuery.new(source_directory),
+        Classifier::CollectParameters.new(source_directory),
         Classifier::ConditionalDeleteAll.new(source_directory),
         Classifier::ConnectionTables.new(source_directory),
         Classifier::DeepSymbolizeKeysParameters.new(source_directory),

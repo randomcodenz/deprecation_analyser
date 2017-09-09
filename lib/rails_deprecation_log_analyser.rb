@@ -25,6 +25,7 @@ require 'rails_deprecation_log_analyser/classifier/positional_arguments_function
 require 'rails_deprecation_log_analyser/classifier/redirect_to_back'
 require 'rails_deprecation_log_analyser/classifier/render_text'
 require 'rails_deprecation_log_analyser/classifier/restrict_dependent_destroy'
+require 'rails_deprecation_log_analyser/classifier/status_on_head'
 require 'rails_deprecation_log_analyser/classifier/to_hash_parameters'
 require 'rails_deprecation_log_analyser/classifier/unknown'
 require 'rails_deprecation_log_analyser/classifier/with_indifferent_access'

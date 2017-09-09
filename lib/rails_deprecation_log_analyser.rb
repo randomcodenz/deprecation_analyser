@@ -28,6 +28,7 @@ require 'rails_deprecation_log_analyser/classifier/restrict_dependent_destroy'
 require 'rails_deprecation_log_analyser/classifier/status_on_head'
 require 'rails_deprecation_log_analyser/classifier/to_hash_parameters'
 require 'rails_deprecation_log_analyser/classifier/unknown'
+require 'rails_deprecation_log_analyser/classifier/uniq'
 require 'rails_deprecation_log_analyser/classifier/with_indifferent_access'
 require 'rails_deprecation_log_analyser/classifier/xhr_xml_http_request'
 

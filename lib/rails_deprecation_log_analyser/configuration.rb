@@ -51,6 +51,7 @@ module RailsDeprecationLogAnalyser
         Classifier::RenderText.new(source_directory),
         Classifier::RestrictDependentDestory.new(source_directory),
         Classifier::StatusOnHead.new(source_directory),
+        Classifier::SymbolizeKeysParameters.new(source_directory),
         Classifier::ToHashParameters.new(source_directory),
         Classifier::Uniq.new(source_directory),
         Classifier::WithIndifferentAccess.new(source_directory),

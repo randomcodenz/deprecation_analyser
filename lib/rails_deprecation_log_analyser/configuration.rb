@@ -42,6 +42,8 @@ module RailsDeprecationLogAnalyser
         Classifier::DeepSymbolizeKeysParameters.new(source_directory),
         Classifier::EachWithObjectParameters.new(source_directory),
         Classifier::EqualityComparisonBeweenParametersAndHash.new(source_directory),
+        Classifier::ErrorsGet.new(source_directory),
+        Classifier::ErrorsSet.new(source_directory),
         Classifier::ExceptParameters.new(source_directory),
         Classifier::ImplicitCallbackChainEscape.new(source_directory),
         Classifier::MapParameters.new(source_directory),

@@ -27,8 +27,8 @@ module RailsDeprecationLogAnalyser
         [first_line].concat(deprecation_warning_lines.drop(1))
       end
       let(:deprecated) { 'Positional arguments in functional tests' }
-      let(:summary) { 'Using positional arguments in functional tests has been deprecated in favour of keywork arguments.' }
-      let(:message) { 'Using positional arguments in functional tests has been deprecated in favour of keywork arguments. Replace: get :show, { id: 1 }, nil, { notice: "This is a flash message" } with: get :show, params: { id: 1 }, flash: { notice: "This is a flash message" }.' }
+      let(:summary) { 'Using positional arguments in functional tests has been deprecated in favour of keyword arguments.' }
+      let(:message) { 'Using positional arguments in functional tests has been deprecated in favour of keyword arguments. Replace: get :show, { id: 1 }, nil, { notice: "This is a flash message" } with: get :show, params: { id: 1 }, flash: { notice: "This is a flash message" }.' }
       let(:lines) { [] + deprecation_log_lines + ['Random log line 1', 'Random log line 2'] }
       let(:filter) { double('filter') }
       let(:classifier_result) { classifier.process(lines, filter) }

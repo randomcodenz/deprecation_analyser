@@ -50,6 +50,7 @@ module RailsDeprecationLogAnalyser
         Classifier::MapParameters.new(source_directory),
         Classifier::MemberParameters.new(source_directory),
         Classifier::MimeTypeConstants.new(source_directory),
+        Classifier::PassInstanceToExists.new(source_directory),
         Classifier::PositionalArgumentsFunctionalTests.new(source_directory),
         Classifier::RedirectToBack.new(source_directory),
         Classifier::RenderText.new(source_directory),

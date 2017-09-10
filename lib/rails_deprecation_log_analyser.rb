@@ -10,6 +10,7 @@ require 'rails_deprecation_log_analyser/log_parser'
 require 'rails_deprecation_log_analyser/version'
 
 require 'rails_deprecation_log_analyser/classifier/base'
+require 'rails_deprecation_log_analyser/classifier/association_reload_argument'
 require 'rails_deprecation_log_analyser/classifier/class_argument_in_active_record_query'
 require 'rails_deprecation_log_analyser/classifier/classifier_result'
 require 'rails_deprecation_log_analyser/classifier/collect_parameters'

@@ -50,6 +50,7 @@ module RailsDeprecationLogAnalyser
         Classifier::ErrorsSet.new(source_directory),
         Classifier::ExceptParameters.new(source_directory),
         Classifier::ImplicitCallbackChainEscape.new(source_directory),
+        Classifier::LockingDiryRecord.new(source_directory),
         Classifier::MapParameters.new(source_directory),
         Classifier::MemberParameters.new(source_directory),
         Classifier::MimeTypeConstants.new(source_directory),

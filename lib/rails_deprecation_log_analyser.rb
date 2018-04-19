@@ -29,6 +29,7 @@ require 'rails_deprecation_log_analyser/classifier/implicit_callback_chain_escap
 require 'rails_deprecation_log_analyser/classifier/map_parameters'
 require 'rails_deprecation_log_analyser/classifier/member_parameters'
 require 'rails_deprecation_log_analyser/classifier/mime_type_constants'
+require 'rails_deprecation_log_analyser/classifier/not_in_asset_pipeline'
 require 'rails_deprecation_log_analyser/classifier/pass_instance_to_exists'
 require 'rails_deprecation_log_analyser/classifier/positional_arguments_functional_tests'
 require 'rails_deprecation_log_analyser/classifier/redirect_to_back'

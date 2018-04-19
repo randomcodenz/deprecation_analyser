@@ -41,6 +41,7 @@ module RailsDeprecationLogAnalyser
         Classifier::ChangedAttributesCallback.new(source_directory),
         Classifier::ChangedInCallback.new(source_directory),
         Classifier::ClassArgumentInActiveRecordQuery.new(source_directory),
+        Classifier::ClassToClassName.new(source_directory),
         Classifier::CollectParameters.new(source_directory),
         Classifier::ConditionalDeleteAll.new(source_directory),
         Classifier::ConnectionTables.new(source_directory),

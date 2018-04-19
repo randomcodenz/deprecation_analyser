@@ -63,6 +63,7 @@ module RailsDeprecationLogAnalyser
         Classifier::RestrictDependentDestory.new(source_directory),
         Classifier::ReverseMergeParameters.new(source_directory),
         Classifier::StatusOnHead.new(source_directory),
+        Classifier::StringConditionalOptions.new(source_directory),
         Classifier::SymbolizeKeysParameters.new(source_directory),
         Classifier::ToHashParameters.new(source_directory),
         Classifier::Uniq.new(source_directory),

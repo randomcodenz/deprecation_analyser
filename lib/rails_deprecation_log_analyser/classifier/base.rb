@@ -9,6 +9,10 @@ module RailsDeprecationLogAnalyser
         @source_directory = source_directory
       end
 
+      def self.register(source_directory, registry)
+        registry.register(new(source_directory))
+      end
+
       def process(cursor, filter)
         lines = cursor.take(lines_to_consume)
 

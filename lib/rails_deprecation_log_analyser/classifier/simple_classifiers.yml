@@ -1,0 +1,6 @@
+association_reload_argument:
+  log_line_includes: 'Passing an argument to force an association to reload'
+  lines_to_consume: 1
+  deprecated: 'Association reload argument'
+  summary: 'Passing an argument to force an association to reload is now deprecated and will be removed in Rails 5.1.'
+  message: 'Passing an argument to force an association to reload is now deprecated and will be removed in Rails 5.1. Please call `reload` on the result collection proxy instead.'

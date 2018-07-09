@@ -11,7 +11,6 @@ require 'rails_deprecation_log_analyser/log_parser'
 require 'rails_deprecation_log_analyser/version'
 
 require 'rails_deprecation_log_analyser/classifier/base'
-require 'rails_deprecation_log_analyser/classifier/attribute_changed_callback'
 require 'rails_deprecation_log_analyser/classifier/attribute_was_callback'
 require 'rails_deprecation_log_analyser/classifier/changed_attributes_callback'
 require 'rails_deprecation_log_analyser/classifier/changed_in_callback'

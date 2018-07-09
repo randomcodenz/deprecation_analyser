@@ -14,7 +14,8 @@ module RailsDeprecationLogAnalyser
       end
 
       def self.register(source_directory, registry)
-        classifiers_config = YAML.load_from_file('simple_classifiers.yml')
+        classifiers_config = YAML.load_file(File.join(__dir__, 'simple_classifiers.yml'))
+
         classifiers_config.each do |name, config|
           classifier = new(
             source_directory,
@@ -24,7 +25,7 @@ module RailsDeprecationLogAnalyser
             config.fetch('summary'),
             config.fetch('message'),
           )
-          registry.register(classifier)
+          registry.register(name: name, classifier: classifier)
         end
       end
 

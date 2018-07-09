@@ -3,12 +3,6 @@
 module RailsDeprecationLogAnalyser
   class Configuration
 
-    Registry = Struct.new(:classifiers) do
-      def register(classifier)
-        classifiers.push(classifier)
-      end
-    end
-
     def initialize(parser_config, formatters, source_directory)
       @parser_config = parser_config
       @formatters = formatters
@@ -40,14 +34,14 @@ module RailsDeprecationLogAnalyser
     attr_reader :parser_config, :classifiers, :formatters, :unknown
 
     def build_classifiers(source_directory)
-      registry = Registry.new([])
+      registry = ClassifierRegistry.new
       classifier_classes.each { |c| c.register(source_directory, registry) }
       registry.classifiers
     end
 
     def classifier_classes
       [
-        Classifier::AssociationReloadArgument,
+        Classifier::SimpleClassifier,
         Classifier::AttributeChangedCallback,
         Classifier::AttributeWasCallback,
         Classifier::ChangedAttributesCallback,

@@ -10,7 +10,8 @@ module RailsDeprecationLogAnalyser
       end
 
       def self.register(source_directory, registry)
-        registry.register(new(source_directory))
+        class_name = name.gsub(/^.*::/, '')
+        registry.register(name: class_name, classifier: new(source_directory))
       end
 
       def process(cursor, filter)

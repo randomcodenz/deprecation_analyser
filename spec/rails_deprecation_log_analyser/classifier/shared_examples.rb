@@ -55,5 +55,24 @@ module RailsDeprecationLogAnalyser
         end
       end
     end
+
+    RSpec.shared_examples 'a simple classifier' do
+      let(:config_path) { File.join(__dir__, 'simple_classifiers.yml').gsub(/\/spec/, '/lib') }
+      let(:classifiers_hash) { YAML.load_file(config_path) }
+      let(:classifier_configuration) { classifiers_hash[classifier_name] }
+      let(:registry) { ClassifierRegistry.new }
+
+      before do
+        SimpleClassifier.register('', registry)
+      end
+
+      it_behaves_like 'a deprecation warning classifier' do
+        let(:deprecated) { classifier_configuration['deprecated'] }
+        let(:summary) { classifier_configuration['summary'] }
+        let(:message) { classifier_configuration['message'] }
+
+        subject(:classifier) { registry.classifier(name: classifier_name) }
+      end
+    end
   end
 end

@@ -6,12 +6,6 @@ require 'YAML'
 
 module RailsDeprecationLogAnalyser
   module Classifier
-    ClassifierRegistry = Struct.new(:classifiers) do
-      def register(classifier)
-        classifiers.push(classifier)
-      end
-    end
-
     RSpec.describe SimpleClassifier do
       it_behaves_like 'a deprecation warning classifier' do
         let(:deprecation_warning) { 'Passing an argument to force an association to reload is now deprecated and will be removed in Rails 5.1. Please call `reload` on the result collection proxy instead.' }
@@ -28,12 +22,7 @@ module RailsDeprecationLogAnalyser
         context 'when creating simple classifiers from yaml' do
           let(:classifiers_hash) { YAML.load(classifier_yaml) }
           let(:classifier_configuration) { classifiers_hash['association_reload_argument'] }
-          let(:registry) { ClassifierRegistry.new([]) }
-
-          before do
-            allow(YAML).to receive(:load_from_file).and_return(classifiers_hash)
-            SimpleClassifier.register('', registry)
-          end
+          let(:registry) { ClassifierRegistry.new }
 
           it_behaves_like 'a deprecation warning classifier' do
             let(:classifier_yaml) do
@@ -54,6 +43,11 @@ module RailsDeprecationLogAnalyser
             let(:message) { classifier_configuration['message'] }
 
             subject(:classifier) { registry.classifiers.first }
+
+            before do
+              allow(YAML).to receive(:load_file).and_return(classifiers_hash)
+              SimpleClassifier.register('', registry)
+            end
           end
 
           context 'when there are multiple classifiers in the config' do
@@ -84,8 +78,25 @@ module RailsDeprecationLogAnalyser
 
             subject(:classifiers) { registry.classifiers }
 
+            before do
+              allow(YAML).to receive(:load_file).and_return(classifiers_hash)
+              SimpleClassifier.register('', registry)
+            end
+
             it 'creates a classifier for each configuration' do
               expect(classifiers.length).to eq 3
+              expect(classifiers).to all(be_an_instance_of(SimpleClassifier))
+            end
+          end
+
+          context 'when loading classifiers from the configuration file' do
+            subject(:classifiers) { registry.classifiers }
+
+            before do
+              SimpleClassifier.register('', registry)
+            end
+
+            it 'the file is valid' do
               expect(classifiers).to all(be_an_instance_of(SimpleClassifier))
             end
           end

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'rails_deprecation_log_analyser/classifier_registry'
 require 'rails_deprecation_log_analyser/cli'
 require 'rails_deprecation_log_analyser/configuration'
 require 'rails_deprecation_log_analyser/deprecation_call_site'
@@ -10,7 +11,6 @@ require 'rails_deprecation_log_analyser/log_parser'
 require 'rails_deprecation_log_analyser/version'
 
 require 'rails_deprecation_log_analyser/classifier/base'
-require 'rails_deprecation_log_analyser/classifier/association_reload_argument'
 require 'rails_deprecation_log_analyser/classifier/attribute_changed_callback'
 require 'rails_deprecation_log_analyser/classifier/attribute_was_callback'
 require 'rails_deprecation_log_analyser/classifier/changed_attributes_callback'

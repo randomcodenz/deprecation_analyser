@@ -42,11 +42,6 @@ module RailsDeprecationLogAnalyser
     def classifier_classes
       [
         Classifier::SimpleClassifier,
-        Classifier::AttributeWasCallback,
-        Classifier::ChangedAttributesCallback,
-        Classifier::ChangedInCallback,
-        Classifier::ClassArgumentInActiveRecordQuery,
-        Classifier::ClassToClassName,
         Classifier::CollectParameters,
         Classifier::ConditionalDeleteAll,
         Classifier::ConnectionTables,

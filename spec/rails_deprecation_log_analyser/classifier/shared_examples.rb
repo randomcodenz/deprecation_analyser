@@ -68,7 +68,7 @@ module RailsDeprecationLogAnalyser
 
       it_behaves_like 'a deprecation warning classifier' do
         let(:deprecated) { classifier_configuration['deprecated'] }
-        let(:summary) { classifier_configuration['summary'] }
+        let(:summary) { classifier_configuration['summary'] || SimpleClassifier.build_summary(message) }
         let(:message) { classifier_configuration['message'] }
 
         subject(:classifier) { registry.classifier(name: classifier_name) }

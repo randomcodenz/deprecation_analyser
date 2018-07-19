@@ -17,16 +17,28 @@ module RailsDeprecationLogAnalyser
         classifiers_config = YAML.load_file(File.join(__dir__, 'simple_classifiers.yml'))
 
         classifiers_config.each do |name, config|
-          classifier = new(
-            source_directory,
-            config.fetch('log_line_includes'),
-            config.fetch('lines_to_consume'),
-            config.fetch('deprecated'),
-            config.fetch('summary'),
-            config.fetch('message'),
-          )
+          classifier = build_classifier(source_directory, config)
           registry.register(name: name, classifier: classifier)
         end
+      end
+
+      def self.build_classifier(source_directory, config)
+        lines_to_consume = config.fetch('lines_to_consume', 1)
+        message = config.fetch('message')
+        summary = config.fetch('summary', build_summary(message))
+
+        classifier = new(
+          source_directory,
+          config.fetch('log_line_includes'),
+          lines_to_consume,
+          config.fetch('deprecated'),
+          summary,
+          message,
+        )
+      end
+
+      def self.build_summary(message)
+        message.slice(/^.*\.(?= [A-Z])/)
       end
 
       def match?(log_line)

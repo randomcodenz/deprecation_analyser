@@ -1,48 +1,34 @@
 association_reload_argument:
   log_line_includes: 'Passing an argument to force an association to reload'
-  lines_to_consume: 1
   deprecated: 'Association reload argument'
-  summary: 'Passing an argument to force an association to reload is now deprecated and will be removed in Rails 5.1.'
   message: 'Passing an argument to force an association to reload is now deprecated and will be removed in Rails 5.1. Please call `reload` on the result collection proxy instead.'
 
 attribute_changed_callback:
   log_line_includes: 'The behavior of `attribute_changed?` inside of after callbacks will be changing in the next version of Rails.'
-  lines_to_consume: 1
   deprecated: '"attribute_changed?" inside of after callbacks'
-  summary: 'The behavior of `attribute_changed?` inside of after callbacks will be changing in the next version of Rails.'
   message: 'The behavior of `attribute_changed?` inside of after callbacks will be changing in the next version of Rails. The new return value will reflect the behavior of calling the method after `save` returned (e.g. the opposite of what it returns now). To maintain the current behavior, use `saved_change_to_attribute?` instead.'
 
 attribute_was_callback:
   log_line_includes: 'The behavior of `attribute_was` inside of after callbacks will be changing in the next version of Rails.'
-  lines_to_consume: 1
   deprecated: '"attribute_was" inside of after callbacks'
-  summary: 'The behavior of `attribute_was` inside of after callbacks will be changing in the next version of Rails.'
   message: 'The behavior of `attribute_was` inside of after callbacks will be changing in the next version of Rails. The new return value will reflect the behavior of calling the method after `save` returned (e.g. the opposite of what it returns now). To maintain the current behavior, use `attribute_before_last_save` instead.'
 
 changed_attributes_callback:
   log_line_includes: 'The behavior of `changed_attributes` inside of after callbacks will be changing in the next version of Rails.'
-  lines_to_consume: 1
   deprecated: '"changed_attributes" inside of after callbacks'
-  summary: 'The behavior of `changed_attributes` inside of after callbacks will be changing in the next version of Rails.'
   message: 'The behavior of `changed_attributes` inside of after callbacks will be changing in the next version of Rails. The new return value will reflect the behavior of calling the method after `save` returned (e.g. the opposite of what it returns now). To maintain the current behavior, use `saved_changes.transform_values(&:first)` instead.'
 
 changed_in_callback:
   log_line_includes: 'The behavior of `changed?` inside of after callbacks will be changing in the next version of Rails.'
-  lines_to_consume: 1
   deprecated: '"changed?" inside of after callbacks'
-  summary: 'The behavior of `changed?` inside of after callbacks will be changing in the next version of Rails.'
   message: 'The behavior of `changed?` inside of after callbacks will be changing in the next version of Rails. The new return value will reflect the behavior of calling the method after `save` returned (e.g. the opposite of what it returns now). To maintain the current behavior, use `saved_changes?` instead.'
 
 class_argument_in_active_record_query:
   log_line_includes: 'Passing a class as a value in an Active Record query is deprecated and will be removed. Pass a string instead.'
-  lines_to_consume: 1
   deprecated: 'Class argument in ActiveRecord query'
-  summary: 'Passing a class as a value in an Active Record query is deprecated and will be removed'
   message: 'Passing a class as a value in an Active Record query is deprecated and will be removed. Pass a string instead.'
 
 class_to_class_name:
   log_line_includes: 'Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2'
-  lines_to_consume: 1
   deprecated: 'Passing a class to the `class_name`'
-  summary: 'Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2'
   message: 'Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string.'

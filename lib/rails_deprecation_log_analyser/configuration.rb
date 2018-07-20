@@ -42,34 +42,8 @@ module RailsDeprecationLogAnalyser
     def classifier_classes
       [
         Classifier::SimpleClassifier,
-        Classifier::CollectParameters,
-        Classifier::ConditionalDeleteAll,
         Classifier::ConnectionTables,
-        Classifier::DeepSymbolizeKeysParameters,
-        Classifier::EachWithObjectParameters,
-        Classifier::EqualityComparisonBeweenParametersAndHash,
-        Classifier::ErrorsGet,
-        Classifier::ErrorsSet,
-        Classifier::ExceptParameters,
-        Classifier::ImplicitCallbackChainEscape,
-        Classifier::LockingDiryRecord,
-        Classifier::MapParameters,
-        Classifier::MemberParameters,
-        Classifier::MimeTypeConstants,
-        Classifier::NotInAssetPipeline,
-        Classifier::PassInstanceToExists,
-        Classifier::PositionalArgumentsFunctionalTests,
-        Classifier::RedirectToBack,
-        Classifier::RenderText,
-        Classifier::RestrictDependentDestory,
-        Classifier::ReverseMergeParameters,
-        Classifier::StatusOnHead,
-        Classifier::StringConditionalOptions,
-        Classifier::SymbolizeKeysParameters,
-        Classifier::ToHashParameters,
-        Classifier::Uniq,
-        Classifier::WithIndifferentAccess,
-        Classifier::XhrXmlHttpRequest
+        Classifier::MimeTypeConstants
       ]
     end
 

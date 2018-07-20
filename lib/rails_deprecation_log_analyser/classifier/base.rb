@@ -17,18 +17,34 @@ module RailsDeprecationLogAnalyser
       def process(cursor, filter)
         lines = cursor.take(lines_to_consume)
 
-        clean_lines = [filter.clean(lines[0])]
-        clean_lines.concat(lines[1..-1])
+        skip(lines) || classifiy(lines, filter)
+      end
 
-        warning = build_deprecation_warning(clean_lines)
-
-        ClassifierResult.new(lines, warning)
+      def skip?
+        false
       end
 
       protected
 
       def build_call_site(log_line)
         DeprecationCallSite.new(log_line, source_directory)
+      end
+
+      def skip(lines)
+        return unless skip?
+
+        ClassifierResult.new(lines, nil)
+      end
+
+      def classifiy(lines, filter)
+        return if skip?
+
+        clean_lines = [filter.clean(lines[0])]
+        clean_lines.concat(lines[1..-1])
+
+        warning = build_deprecation_warning(clean_lines)
+
+        ClassifierResult.new(lines, warning)
       end
     end
   end

@@ -34,42 +34,16 @@ module RailsDeprecationLogAnalyser
     attr_reader :parser_config, :classifiers, :formatters, :unknown
 
     def build_classifiers(source_directory)
+      registry = ClassifierRegistry.new
+      classifier_classes.each { |c| c.register(source_directory, registry) }
+      registry.classifiers
+    end
+
+    def classifier_classes
       [
-        Classifier::AssociationReloadArgument.new(source_directory),
-        Classifier::AttributeChangedCallback.new(source_directory),
-        Classifier::AttributeWasCallback.new(source_directory),
-        Classifier::ChangedAttributesCallback.new(source_directory),
-        Classifier::ChangedInCallback.new(source_directory),
-        Classifier::ClassArgumentInActiveRecordQuery.new(source_directory),
-        Classifier::ClassToClassName.new(source_directory),
-        Classifier::CollectParameters.new(source_directory),
-        Classifier::ConditionalDeleteAll.new(source_directory),
-        Classifier::ConnectionTables.new(source_directory),
-        Classifier::DeepSymbolizeKeysParameters.new(source_directory),
-        Classifier::EachWithObjectParameters.new(source_directory),
-        Classifier::EqualityComparisonBeweenParametersAndHash.new(source_directory),
-        Classifier::ErrorsGet.new(source_directory),
-        Classifier::ErrorsSet.new(source_directory),
-        Classifier::ExceptParameters.new(source_directory),
-        Classifier::ImplicitCallbackChainEscape.new(source_directory),
-        Classifier::LockingDiryRecord.new(source_directory),
-        Classifier::MapParameters.new(source_directory),
-        Classifier::MemberParameters.new(source_directory),
-        Classifier::MimeTypeConstants.new(source_directory),
-        Classifier::NotInAssetPipeline.new(source_directory),
-        Classifier::PassInstanceToExists.new(source_directory),
-        Classifier::PositionalArgumentsFunctionalTests.new(source_directory),
-        Classifier::RedirectToBack.new(source_directory),
-        Classifier::RenderText.new(source_directory),
-        Classifier::RestrictDependentDestory.new(source_directory),
-        Classifier::ReverseMergeParameters.new(source_directory),
-        Classifier::StatusOnHead.new(source_directory),
-        Classifier::StringConditionalOptions.new(source_directory),
-        Classifier::SymbolizeKeysParameters.new(source_directory),
-        Classifier::ToHashParameters.new(source_directory),
-        Classifier::Uniq.new(source_directory),
-        Classifier::WithIndifferentAccess.new(source_directory),
-        Classifier::XhrXmlHttpRequest.new(source_directory)
+        Classifier::SimpleClassifier,
+        Classifier::ConnectionTables,
+        Classifier::MimeTypeConstants
       ]
     end
 

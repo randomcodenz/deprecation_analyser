@@ -11,6 +11,7 @@ module RailsDeprecationLogAnalyser
       let(:line_number) { '53' }
       let(:cleaned_log_line) { "#{deprecation_warning} (called from #{method} at #{file}:#{line_number})" }
       let(:deprecation_log_line) { "#{deprecation_leader} #{cleaned_log_line}" }
+      let(:deprecation_log_lines) { [deprecation_log_line] }
       let(:deprecated) { 'Method with_indifferent_access on ActionController::Parameters' }
       let(:summary) { 'Method with_indifferent_access on ActionController::Parameters is deprecated. Using this deprecated behavior exposes potential security problems.' }
       let(:message) { 'Method with_indifferent_access on ActionController::Parameters is deprecated. Instead, consider using one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.3/classes/ActionController/Parameters.html' }
@@ -51,8 +52,31 @@ module RailsDeprecationLogAnalyser
         end
 
         it 'returns the deprecation warning log line' do
-          expect(classifier_result.log_lines).to eq [deprecation_log_line]
+          expect(classifier_result.log_lines).to eq deprecation_log_lines
         end
+      end
+    end
+
+    RSpec.shared_examples 'a simple classifier' do
+      let(:config_path) { File.join(__dir__, 'simple_classifiers.yml').gsub(/\/spec/, '/lib') }
+      let(:classifiers_hash) { YAML.load_file(config_path) }
+      let(:classifier_configuration) { classifiers_hash[classifier_name] }
+      let(:registry) { ClassifierRegistry.new }
+
+      before do
+        SimpleClassifier.register('', registry)
+      end
+
+      it 'the named classifier exists' do
+        expect(registry.classifier(name: classifier_name)).not_to be_nil, "Could not find a classifier named: '#{classifier_name}'."
+      end
+
+      it_behaves_like 'a deprecation warning classifier' do
+        let(:deprecated) { classifier_configuration['deprecated'] }
+        let(:summary) { classifier_configuration['summary'] || SimpleClassifier.build_summary(message) }
+        let(:message) { classifier_configuration['message'] }
+
+        subject(:classifier) { registry.classifier(name: classifier_name) }
       end
     end
   end

@@ -1,0 +1,174 @@
+association_reload_argument:
+  log_line_includes: 'Passing an argument to force an association to reload'
+  deprecated: 'Association reload argument'
+  message: 'Passing an argument to force an association to reload is now deprecated and will be removed in Rails 5.1. Please call `reload` on the result collection proxy instead.'
+
+attribute_changed_callback:
+  log_line_includes: 'The behavior of `attribute_changed?` inside of after callbacks will be changing in the next version of Rails.'
+  deprecated: '"attribute_changed?" inside of after callbacks'
+  message: 'The behavior of `attribute_changed?` inside of after callbacks will be changing in the next version of Rails. The new return value will reflect the behavior of calling the method after `save` returned (e.g. the opposite of what it returns now). To maintain the current behavior, use `saved_change_to_attribute?` instead.'
+
+attribute_was_callback:
+  log_line_includes: 'The behavior of `attribute_was` inside of after callbacks will be changing in the next version of Rails.'
+  deprecated: '"attribute_was" inside of after callbacks'
+  message: 'The behavior of `attribute_was` inside of after callbacks will be changing in the next version of Rails. The new return value will reflect the behavior of calling the method after `save` returned (e.g. the opposite of what it returns now). To maintain the current behavior, use `attribute_before_last_save` instead.'
+
+changed_attributes_callback:
+  log_line_includes: 'The behavior of `changed_attributes` inside of after callbacks will be changing in the next version of Rails.'
+  deprecated: '"changed_attributes" inside of after callbacks'
+  message: 'The behavior of `changed_attributes` inside of after callbacks will be changing in the next version of Rails. The new return value will reflect the behavior of calling the method after `save` returned (e.g. the opposite of what it returns now). To maintain the current behavior, use `saved_changes.transform_values(&:first)` instead.'
+
+changed_in_callback:
+  log_line_includes: 'The behavior of `changed?` inside of after callbacks will be changing in the next version of Rails.'
+  deprecated: '"changed?" inside of after callbacks'
+  message: 'The behavior of `changed?` inside of after callbacks will be changing in the next version of Rails. The new return value will reflect the behavior of calling the method after `save` returned (e.g. the opposite of what it returns now). To maintain the current behavior, use `saved_changes?` instead.'
+
+class_argument_in_active_record_query:
+  log_line_includes: 'Passing a class as a value in an Active Record query is deprecated and will be removed. Pass a string instead.'
+  deprecated: 'Class argument in ActiveRecord query'
+  message: 'Passing a class as a value in an Active Record query is deprecated and will be removed. Pass a string instead.'
+
+class_to_class_name:
+  log_line_includes: 'Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2'
+  deprecated: 'Passing a class to the `class_name`'
+  message: 'Passing a class to the `class_name` is deprecated and will raise an ArgumentError in Rails 5.2. It eagerloads more classes than necessary and potentially creates circular dependencies. Please pass the class name as a string.'
+
+collect_parameters:
+  log_line_includes: 'Method collect is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash.'
+  deprecated: 'ActionController::Parameters#collect'
+  message: 'Method collect is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Use one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.3/classes/ActionController/Parameters.html'
+
+conditional_delete_all:
+  log_line_includes: 'Passing conditions to delete_all is deprecated'
+  deprecated: 'Conditional delete_all'
+  message: 'Passing conditions to delete_all is deprecated and will be removed in Rails 5.1. To achieve the same use where(conditions).delete_all.'
+
+deep_symbolize_keys_parameters:
+  log_line_includes: 'Method deep_symbolize_keys is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited.'
+  deprecated: 'ActionController::Parameters#deep_symbolize_keys'
+  summary: 'Method deep_symbolize_keys is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited.'
+  message: 'Method deep_symbolize_keys is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited. Instead, consider using one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.3/classes/ActionController/Parameters.html'
+
+each_with_object_parameters:
+  log_line_includes: 'Method each_with_object is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited.'
+  deprecated: 'ActionController::Parameters#each_with_object'
+  summary: 'Method each_with_object is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited.'
+  message: 'Method each_with_object is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited. Instead, consider using one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.3/classes/ActionController/Parameters.html'
+
+equality_comparison_beween_parameters_and_hash:
+  log_line_includes: 'Comparing equality between `ActionController::Parameters` and a `Hash` is deprecated and will be removed in Rails 5.1.'
+  deprecated: 'Parameters and Hash comparison'
+  message: 'Comparing equality between `ActionController::Parameters` and a `Hash` is deprecated and will be removed in Rails 5.1. Please only do comparisons between instances of `ActionController::Parameters`. If you need to compare to a hash, first convert it using `ActionController::Parameters#new`.'
+
+errors_get:
+  log_line_includes: 'ActiveModel::Errors#get is deprecated and will be removed in Rails 5.1'
+  deprecated: 'ActiveModel::Errors#get'
+  message: 'ActiveModel::Errors#get is deprecated and will be removed in Rails 5.1. To achieve the same use model.errors[:attribute_name].'
+
+errors_set:
+  log_line_includes: 'ActiveModel::Errors#[]= is deprecated and will be removed in Rails 5.1'
+  deprecated: 'ActiveModel::Errors#[]='
+  message: 'ActiveModel::Errors#[]= is deprecated and will be removed in Rails 5.1. Use model.errors.add(:attribute_name, "Error message") instead.'
+
+except_parameters:
+  log_line_includes: 'Method except! is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited.'
+  deprecated: 'ActionController::Parameters#except!'
+  summary: 'Method except! is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited.'
+  message: 'Method except! is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited. Instead, consider using one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.3/classes/ActionController/Parameters.html'
+
+implicit_callback_chain_escape:
+  log_line_includes: 'Returning `false` in Active Record and Active Model callbacks will not implicitly halt a callback chain in Rails 5.1. To explicitly halt the callback chain, please use `throw :abort` instead.'
+  deprecated: 'Implicit escaping of callbacks'
+  message: 'Returning `false` in Active Record and Active Model callbacks will not implicitly halt a callback chain in Rails 5.1. To explicitly halt the callback chain, please use `throw :abort` instead.'
+
+locking_diry_record:
+  log_line_includes: 'Locking a record with unpersisted changes is deprecated and will raise an exception in Rails 5.2.'
+  deprecated: 'Locking a dirty record'
+  message: 'Locking a record with unpersisted changes is deprecated and will raise an exception in Rails 5.2. Use `save` to persist the changes, or `reload` to discard them explicitly.'
+
+map_parameters:
+  log_line_includes: 'Method map is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited.'
+  deprecated: 'ActionController::Parameters#map'
+  summary: 'Method map is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited.'
+  message: 'Method map is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited. Instead, consider using one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.3/classes/ActionController/Parameters.html'
+
+member_parameters:
+  log_line_includes: 'Method member? is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited.'
+  deprecated: 'ActionController::Parameters#member?'
+  message: 'Method member? is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited. Instead, consider using one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.3/classes/ActionController/Parameters.html'
+
+not_in_asset_pipeline:
+  log_line_includes: 'Falling back to an asset that may be in the public folder.'
+  lines_to_consume: 5
+  deprecated: 'Asset not present in the asset pipeline'
+  summary: 'Falling back to an asset that may be in the public folder.'
+  message: 'The asset specified is not present in the asset pipeline. This behavior is deprecated and will be removed. Falling back to an asset that may be in the public folder. To bypass the asset pipeline and preserve this behavior, use the `skip_pipeline: true` option'
+
+pass_instance_to_exists:
+  log_line_includes: 'You are passing an instance of ActiveRecord::Base to `exists?`'
+  deprecated: 'Passing instance to exists?'
+  message: 'You are passing an instance of ActiveRecord::Base to `exists?`. Please pass the id of the object by calling `.id`.'
+
+positional_arguments_functional_tests:
+  log_line_includes: 'Using positional arguments in functional tests has been deprecated'
+  lines_to_consume: 10
+  deprecated: 'Positional arguments in functional tests'
+  message: 'Using positional arguments in functional tests has been deprecated in favour of keyword arguments. Replace: get :show, { id: 1 }, nil, { notice: "This is a flash message" } with: get :show, params: { id: 1 }, flash: { notice: "This is a flash message" }.'
+
+redirect_to_back:
+  log_line_includes: '`redirect_to :back` is deprecated and will be removed from Rails 5.1. Please use `redirect_back(fallback_location: fallback_location)` where `fallback_location` represents the location to use if the request has no HTTP referer information.'
+  deprecated: '`redirect_to :back` is deprecated'
+  message: '`redirect_to :back` is deprecated and will be removed from Rails 5.1. Please use `redirect_back(fallback_location: fallback_location)` where `fallback_location` represents the location to use if the request has no HTTP referer information.'
+
+render_text:
+  log_line_includes: "`render :text` is deprecated because it does not actually render a `text/plain` response. Switch to `render plain: 'plain text'` to render as `text/plain`, `render html: '<strong>HTML</strong>'` to render as `text/html`, or `render body: 'raw'` to match the deprecated behavior and render with the default Content-Type, which is `text/html`."
+  deprecated: '`render :text` response'
+  message: "`render :text` is deprecated because it does not actually render a `text/plain` response. Switch to `render plain: 'plain text'` to render as `text/plain`, `render html: '<strong>HTML</strong>'` to render as `text/html`, or `render body: 'raw'` to match the deprecated behavior and render with the default Content-Type, which is `text/html`."
+
+restrict_dependent_destory:
+  log_line_includes: "The error key `:'restrict_dependent_destroy.many'` has been deprecated and will be removed in Rails 5.1. Please use `:'restrict_dependent_destroy.has_many'` instead."
+  deprecated: 'Restrict dependent destroy - many'
+  message: "The error key `:'restrict_dependent_destroy.many'` has been deprecated and will be removed in Rails 5.1. Please use `:'restrict_dependent_destroy.has_many'` instead."
+
+reverse_merge_parameters:
+  log_line_includes: 'Method reverse_merge is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash.'
+  deprecated: 'ActionController::Parameters#reverse_merge'
+  message: 'Method reverse_merge is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Use one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.3/classes/ActionController/Parameters.html'
+
+status_on_head:
+  log_line_includes: 'The :status option on `head` has been deprecated'
+  deprecated: ':status option on `head`'
+  message: 'The :status option on `head` has been deprecated and will be removed in Rails 5.1. Please pass the status as a separate parameter before the options, instead.'
+
+string_conditional_options:
+  log_line_includes: 'Passing string to be evaluated in :if and :unless conditional options is deprecated and will be removed in Rails 5.2 without replacement.'
+  deprecated: 'strings in :if and :unless conditional options'
+  message: 'Passing string to be evaluated in :if and :unless conditional options is deprecated and will be removed in Rails 5.2 without replacement. Pass a symbol for an instance method, or a lambda, proc or block, instead.'
+
+symbolize_keys_parameters:
+  log_line_includes: 'Method symbolize_keys is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash.'
+  deprecated: 'ActionController::Parameters#symbolize_keys'
+  message: 'Method symbolize_keys is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Use one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.3/classes/ActionController/Parameters.html'
+
+to_hash_parameters:
+  log_line_includes: '#to_hash unexpectedly ignores parameter filtering, and will change to enforce it in Rails 5.1. Enable `raise_on_unfiltered_parameters` to respect parameter filtering, which is the default in new applications. For the existing deprecated behaviour, call #to_unsafe_h instead.'
+  deprecated: '#to_hash on parameters'
+  message: '#to_hash unexpectedly ignores parameter filtering, and will change to enforce it in Rails 5.1. Enable `raise_on_unfiltered_parameters` to respect parameter filtering, which is the default in new applications. For the existing deprecated behaviour, call #to_unsafe_h instead.'
+
+uniq:
+  log_line_includes: 'uniq is deprecated and will be removed from Rails 5.1'
+  deprecated: 'uniq'
+  summary: 'uniq is deprecated and will be removed from Rails 5.1'
+  message: 'uniq is deprecated and will be removed from Rails 5.1, use distinct instead'
+
+with_indifferent_access:
+  log_line_includes: 'Method with_indifferent_access is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash.'
+  deprecated: 'Method with_indifferent_access on ActionController::Parameters'
+  summary: 'Method with_indifferent_access on ActionController::Parameters is deprecated. Using this deprecated behavior exposes potential security problems.'
+  message: 'Method with_indifferent_access on ActionController::Parameters is deprecated. Instead, consider using one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.3/classes/ActionController/Parameters.html'
+
+xhr_xml_http_request:
+  log_line_includes: '`xhr` and `xml_http_request` are deprecated'
+  lines_to_consume: 3
+  deprecated: 'xhr and xml_http_request'
+  message: '`xhr` and `xml_http_request` are deprecated and will be removed in Rails 5.1. Switch to e.g. `post :create, ..., xhr: true`'
